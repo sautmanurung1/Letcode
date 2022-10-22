@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func minimumGroups(predators []int32) int32 {
 	var totalGroup int32 = 1
 	num := int32(len(predators))
@@ -7,7 +9,7 @@ func minimumGroups(predators []int32) int32 {
 		species := i
 		tempGroup := int32(1)
 		for predators[species] > -1 && predators[species] < num && tempGroup < num {
-			species = int32(predators[species])
+			species = predators[species]
 			tempGroup++
 		}
 
@@ -19,5 +21,6 @@ func minimumGroups(predators []int32) int32 {
 	return totalGroup
 }
 func main() {
-
+	var predators []int32 = []int32{-1, 8, 6, 0, 7, 3, 8, 9, -1, 6, 1}
+	fmt.Println(minimumGroups(predators))
 }
